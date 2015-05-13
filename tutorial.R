@@ -5,34 +5,26 @@
 sqrt(4)
 3*7*2
 4/3
-x<-2
-x
-y=5
-y
-z
-a
-b
-# Assignment, required once a while?
-assign("j",4)
-j
 
 # Assignment, the first is actually the standard one
+x <- 2
+y = 5
+3 -> z        # Possible to flip around the assignment
+a <- b <- 7   # Multiple assignments
+assign("j",4) # Assignment function, required once a while?
+i <- 5L       # Assign Integer type
+
 # Remove (memory clear) of a variable
 rm(j)
-j
-# Data type
+
+# Check data type
 is.numeric(x)
-# Integer type
-i <- 5L
 is.integer(i)
-# Returning the data type
-class(i)
+class(i)       # Returning the data type
 
 # Normal string versus vector
-x<-"Hello World!"
-x
-y<-factor("Hello World")
-y
+x <- "Hello World!"
+y <- factor("Hello World") # Vectorized
 
 # Length of string/characters/numeric
 nchar(x)
@@ -48,7 +40,8 @@ as.numeric(date2)
 # TRUE (as 1) FALSE(as 0)
 TRUE
 FALSE
-TRUE*5
+
+TRUE*5      # operation on boolean due to 1|0
 FALSE*10
 
 # Comparison, ==, !=, >, <, >=, <= 
@@ -58,33 +51,29 @@ FALSE*10
 
 # Vectors, c(combine) function, use of :
 c(1,2,3)
-x<-c(1,2,3,4)
+-5:5
+x <- c(1,2,3,4)
 
 c("hello","world","this","a","test")
 
 # !! cannot mix data types in vector - NOT column/row vector
-# AUTOMATIC operations on each element in vector
+# OBSERVE AUTOMATIC operations on each element in vector
 
-x*4
-x+2
-x^2
-sqrt(x)
+x*4         # Each element in vector multiplied by 4
+x+2         # Each element in vector added 2
+x^2         # ...
+sqrt(x)     # ...
 
-y<--5:5
+y <- -5:5
 length(y)
-z<-1:11
-y*z
 
-# OBS - vectors of different length => warning!
-x*y
+z <- 1:11
+y*z         # Assuming vector of equal length
+x*y         # OBS - vectors of different length => warning!
+x <= 3      # Check if each elem is less or equal to 3
 
-x <= 3
-
-# check if all are true
-all(x <= 3)
-
-# check if any is true
-any(x <= 3)
+all(x <= 3) # check if all elements are true
+any(x <= 3) # check if any is true
 
 # Element in vector
 x[1]
