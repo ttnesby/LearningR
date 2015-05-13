@@ -5,20 +5,18 @@
 sqrt(4)
 3*7*2
 4/3
-# Assignment
 x<-2
 x
 y=5
 y
-3 -> z
 z
-# Multiple assignments
-a <- b <- 7
 a
 b
 # Assignment, required once a while?
 assign("j",4)
 j
+
+# Assignment, the first is actually the standard one
 # Remove (memory clear) of a variable
 rm(j)
 j
