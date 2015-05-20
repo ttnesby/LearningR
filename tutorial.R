@@ -1,10 +1,10 @@
 #This is a comment
 
-# Installing and uninstall packages
+# Installing and uninstall packages ----
 install.packages("a_packate")
 remove.packages("a_package")
 
-# Load and unload packages
+# Load and unload packages ----
 library(a_package)
 require(a_package) # Returning TRUE|FALSE for success or not
 detach("a_package")
@@ -14,13 +14,13 @@ detach("a_package")
 # By the following syntax, the package don't need to be loaded before invoking the function
 <package>::<function_name>
 
-#Some basic math operations
+#Some basic math operations ----
 10*10 #This is a another comment
 sqrt(4)
 3*7*2
 4/3
 
-# Assignment
+# Assignment ----
 x <- 2        # Standard notation
 y = 5
 3 -> z        # Possible to flip around the assignment
@@ -58,7 +58,7 @@ as.numeric(date2)
 
 # EASIER date handling by using chron or lubridate
 
-# TRUE (as 1) FALSE(as 0)
+# TRUE (as 1) FALSE(as 0) ----
 TRUE
 FALSE
 
@@ -73,7 +73,7 @@ is.logical(x) # check if logical
 2!=3
 "text" < "text2"
 
-# Vectors - elements of the same type, c(combine) function, alternative - use of :
+# Vectors - elements of the same type, c(combine) function, alternative - use of : ----
 c(1,2,3)
 -5:5
 x <- c(1,2,3,4)
@@ -142,12 +142,12 @@ is.na(z)
 c(1,NULL,2)           # Absence of anything - nothingness - CANNOT exist within a vector
 is.null(NULL)
 
-# ------------------------------------
-# Chapter 5 - Advanced Data Structures
-# ------------------------------------
 
-# data.frames - rows and columns
-# ------------------------------------
+# Chapter 5 - Advanced Data Structures ----
+
+
+# data.frames - rows and columns ----
+
 
 # Each column is a variable , each row is an observation
 # Each row is actually a vector => same data type
@@ -186,8 +186,7 @@ theDF[["names"]]     #returning the factor for relevant column
 
 # NB! Careful about the syntax for returning factor vector versus data.frame...
 
-# Lists
-# ------------------------------------
+# Lists ----
 
 # Can hold various data types
 
@@ -196,3 +195,49 @@ list(c(1,2,3))               # list with 1 element - vector
 (list3 <-list(c(1,2,3),3:7)) # list with 2 elements, vectors of different length, enclosing paranthese - show result
 list(theDF, 1:10)            # list with 2 elements, data.frame and vector
 
+list5 <- list(theDF, 1:10, list3)
+names(list5) <- c("data.frame", "vector", "list") # Adding names to list elements
+emptyList <- vector(mode="list", length=4)        # Creating empty list with vector...
+
+# Accessing list elements
+
+list5[[1]]             # by element
+list5[["data.frame"]]  # by name
+list5[[1]]$names       # Accessing element returned from list
+list5[[1]][,3]         # Accessing element returned from list
+
+# Adding list elements
+
+list5[4] <- 2               # Adding unnamed 4th elem
+list5[["NewElement"]] <- 3:6  # Adding named 5th elem
+
+# Length of list
+
+length(list5)
+
+# PERFORMANCE TIP - adding to a long list is slow, create an empty list and define the elements
+
+# Matrices ----
+
+
+A <- matrix(1:10, nrow = 5)
+B <- matrix(21:30, nrow = 5)
+C <- matrix(21:40, nrow = 2)
+
+# nrow, ncol, dim as before, also addition, sub, ...
+# also both row and column names
+
+A + B
+A * B
+A == B
+
+A %*% t(B)  # Matrix operation, transpose of B
+
+# Special vectors - letters and LETTERS
+
+# Arrays ----
+
+# Multidimensional vector
+
+theArray <- array(1:12, dim = c(2,3,2))
+theArray
