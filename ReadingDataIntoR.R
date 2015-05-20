@@ -22,3 +22,23 @@ head(tomatos) # Show a few row
 
 
 # Reading from Databases ----
+
+# use of RODBC
+
+
+# Binary Files ----
+
+# Use RData file, across Windows, Mac, Linux, ... Code and data
+
+homeDir <- "~/Rtmp"
+if (!dir.exists(homeDir)) {
+  dir.create(homeDir)
+}
+save(tomatos, file = paste(homeDir, "tomatos.rdata", sep = "/"))
+
+rm(tomatos)
+head(tomatos)
+
+load(paste(homeDir, "tomatos.rdata", sep = "/"))
+head(tomatos)
+
