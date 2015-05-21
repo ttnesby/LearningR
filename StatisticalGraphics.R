@@ -20,6 +20,8 @@ plot(diamonds$carat, diamonds$price)  # x, y notation
 
 # Middle of box - median
 # Box is bounded by 1st and 3rd quartiles
+# Conclusion - cannot see 50% of the data...
+
 boxplot(diamonds$carat)
 
 # Diamonds to Mathematica ----
@@ -29,3 +31,10 @@ if (!dir.exists(homeDir)) {
   dir.create(homeDir)
 }
 save(diamonds, file = paste(homeDir, "diamonds.rdata", sep = "/"))
+
+# ggplot 2 Histogram and Density ----
+
+require(ggplot2)
+ggplot(data = diamonds) + geom_histogram(aes(x = carat))
+
+ggplot(data = diamonds) + geom_density(aes(x = carat))
