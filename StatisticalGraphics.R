@@ -21,3 +21,11 @@ plot(diamonds$carat, diamonds$price)  # x, y notation
 # Middle of box - median
 # Box is bounded by 1st and 3rd quartiles
 boxplot(diamonds$carat)
+
+# Diamonds to Mathematica ----
+
+homeDir <- "~/Rtmp"
+if (!dir.exists(homeDir)) {
+  dir.create(homeDir)
+}
+save(diamonds, file = paste(homeDir, "diamonds.rdata", sep = "/"))
