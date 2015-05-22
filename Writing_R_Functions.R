@@ -77,3 +77,5 @@ do.call("hello.fullname", args = list(first = "Torstein", last = "Nesby"))
 do.call(hello.fullname, args = list(first = "Torstein", last = "Nesby"))
 do.call(hello.last, args = list(fullNDF$firstN))
 
+as.vector(fullNDF$firstN)
+
