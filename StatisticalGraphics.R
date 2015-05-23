@@ -3,17 +3,18 @@ require(ggplot2)
 data(diamonds)
 
 # Diamonds to Mathematica ----
-
-homeDir <- "~/Rtmp"
-if (!dir.exists(homeDir)) {
-  dir.create(homeDir)
-}
-save(diamonds, file = paste(homeDir, "diamonds.rdata", sep = "/"))
-write.csv(
-  diamonds, 
-  file = paste(homeDir, "diamonds.csv", sep = "/"), 
-  fileEncoding = "UTF-8"
+{
+  homeDir <- "~/Rtmp"
+  if (!dir.exists(homeDir)) {
+    dir.create(homeDir)
+  }
+  save(diamonds, file = paste(homeDir, "diamonds.rdata", sep = "/"))
+  write.csv(
+    diamonds, 
+    file = paste(homeDir, "diamonds.csv", sep = "/"), 
+    fileEncoding = "UTF-8"
   )
+}
 
 # Base Histogram ----
 
