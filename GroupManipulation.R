@@ -96,7 +96,7 @@ baseball$OBP <- with(baseball, (h + bb + hbp)/(ab + bb + hbp + sf)) # with - can
 tail(baseball)
 
 # To calculate the OBP for the entire career, need to sum all variables for numerator and denominator
-# use of ddply
+# FOR EACH player  - use of ddply
 
 # help function for calc OBP for each player
 obp <- function(data)
@@ -104,6 +104,19 @@ obp <- function(data)
   c(OBP = with(data, sum(h + bb + hbp)/sum(ab + bb + hbp + sf)))
 }
 
+# VERY COOL - incredible EASY
+
 careerOBP <- ddply(baseball, .variables = "id", .fun = obp) # id - each player's career
 careerOBP <- careerOBP[order(careerOBP$OBP, decreasing = TRUE), ] 
 head(careerOBP, 10)
+
+# list operation
+theList <- list(A = matrix(1:9, 3), B = 1:5, C = matrix(1:4, 2), D = 2)
+lapply(theList, sum)
+llply(theList, sum)
+
+identical(lapply(theList, sum), llply(theList, sum))
+
+# Return as vector instead
+sapply(theList, sum)
+laply(theList, sum)
